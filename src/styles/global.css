@@ -1,0 +1,253 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+.no-scrollbar::-webkit-scrollbar {
+    display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+.no-scrollbar {
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+}
+
+html, body, #root {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    overflow-x: hidden; /* Prevent horizontal scrolling */
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+}
+
+.page {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.content {
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    margin-top: var(--navbar-height);
+}
+
+/* Navbar Style */
+.navbar-container {
+    width: 100%; /* Full width for the navbar container */
+    position: fixed; /* Make the navbar stick to the top */
+    top: 0; /* Stick to the top of the viewport */
+    left: 0; /* Align to the left edge */
+    z-index: 1000; /* Ensure it stays above other elements */
+    background-color: #333; /* Navbar background color */
+}
+
+nav {
+    display: flex; /* Use Flexbox for layout */
+    justify-content: space-between; /* Space between navigation links and logo */
+    align-items: center; /* Center items vertically */
+    box-sizing: border-box; /* Include padding in width calculations */
+    padding-left: 10px;
+}
+
+nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: left;
+    gap: 20px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-size:large;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+nav ul li a:hover {
+    color: #868eec; /* Tailwind green-400 */
+}
+
+.navbar-logo {
+    height: var(--navbar-height); /* Set a fixed height for the logo */
+    object-fit: contain; /* Prevent distortion */
+    flex-shrink: 0; /* Ensure the logo doesn’t shrink */
+}
+
+/* Card Style */
+.card {
+    width: 300px; /* Fixed width */
+    height: 400px; /* Fixed height */
+    display: flex; /* Flexbox to align content */
+    flex-direction: column; /* Stack content vertically */
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    overflow: hidden; /* Prevent overflow */
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    background-color: white;
+    transition: transform 0.3s, box-shadow 0.3s; /* Hover effects */
+}
+  
+.card:hover {
+    transform: translateY(-5px); /* Lift on hover */
+    box-shadow: 0 6px 10px #868eec;
+}
+  
+.card-image {
+    width: 100%; /* Scale image to fit card width */
+    height: 80%; /* Take up most of the card height */
+    object-fit: cover; /* Prevent image distortion */
+}
+  
+.card-title {
+    width: 100%;
+    flex-grow: 1; /* Title fills the remaining vertical space */
+    display: flex; /* Use Flexbox for centering text */
+    margin: 0;
+    padding: 0;
+    font-size: 32px;
+    font-weight: bold;
+    color: #333;
+    text-overflow: ellipsis; /* Handle long text */
+    white-space: nowrap; /* Prevent wrapping */
+    overflow: hidden; /* Hide overflow */
+    display: flex; /* Use Flexbox */
+    justify-content: center; /* Center text horizontally */
+    align-items: center; /* Center text vertically */
+}
+
+/* Home Page Styles */
+.home-page {
+    width: 100%;
+}
+.cards-display {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 16px;
+    margin-top: 20px;
+}  
+
+/* Inventory Styles */
+.inventory-grid {
+    display: grid; /* Use grid layout */
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Responsive grid */
+    gap: 16px; /* Space between cards */
+    padding: 16px; /* Add padding around the grid */
+    justify-items: center; /* Center cards horizontally */
+}
+
+.inventory {
+    max-width: 100%; /* Full width of the parent */
+    margin: 0 auto; /* Center the grid */
+    padding: 16px; /* Add padding around the grid */
+    overflow-x: hidden; /* Prevent horizontal scrolling */
+    width: 100%; /* Ensure grid has space */
+}
+
+.inventory-page {
+    width: 100%;
+}
+
+/* About Page Styles */
+.about-container {
+    height: 100%;
+    width: 80%;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    color: #333;
+
+    height: 100%; /* Take full height of the parent container */
+    overflow: hidden; /* Prevent vertical scrolling */
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Center the content vertically */
+    box-sizing: border-box; /* Include padding in height calculation */
+}
+
+.about-title {
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-bottom: 20px;
+    text-align: center;
+    color: #2c3e50; /* Dark blue */
+}
+  
+.about-description {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    margin-bottom: 20px;
+    text-align: justify; /* Align text evenly on both sides */
+}
+  
+.about-features {
+    margin: 20px 0;
+}
+  
+.about-features h2 {
+    font-size: 1.8rem;
+    margin-bottom: 10px;
+    color: #34495e; /* Muted blue */
+}
+  
+.about-features ul {
+    list-style-type: none;
+    padding: 0;
+}
+  
+.about-features ul li {
+    margin: 10px 0;
+    font-size: 1rem;
+}
+  
+.about-goal {
+    margin: 20px 0;
+}
+  
+.about-goal h2 {
+    font-size: 1.8rem;
+    margin-bottom: 10px;
+    color: #34495e;
+}
+  
+.about-goal p {
+    font-size: 1.2rem;
+    line-height: 1.6;
+}
+  
+.about-footer {
+    margin-top: 20px;
+    text-align: center;
+    font-size: 0.9rem;
+    color: #7f8c8d; /* Light gray */
+}
+  
+.footer {
+    background-color: #333; /* Dark background */
+    color: white; /* White text */
+    text-align: center;
+    padding: 10px 0; /* Vertical padding */
+    font-size: 0.9rem;
+    z-index: 1000;
+}
