@@ -156,3 +156,12 @@ This project is licensed under the MIT License. See the [LICENSE](LICENSE) file 
 
 - Made with ❤️ for UC San Diego classmates and friends.
 - Special thanks to [Vercel](https://vercel.com/) for easy deployment.
+
+---
+
+### **Show Your Support**
+
+Follow me and give a ⭐ if you like this website!
+
+- [Follow me on GitHub](https://github.com/chw081)
+- [Star the Wish Simulator repository](https://github.com/chw081/we-wish-simulator)
