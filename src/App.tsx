@@ -5,7 +5,6 @@ import Footer from './components/Footer';
 import Home from './pages/Home';
 import InventoryPage from './pages/InventoryPage';
 import About from './pages/About';
-import { getRandomCard } from './services/wishLogic';
 
 function App() {
   const [inventory, setInventory] = useState<{ image: string; title: string }[]>([]);
