@@ -7,9 +7,9 @@ import InventoryPage from './pages/InventoryPage';
 import About from './pages/About';
 
 function App() {
-  const [inventory, setInventory] = useState<{ image: string; title: string }[]>([]);
+  const [inventory, setInventory] = useState<{ image: string; title: string; rarity: string }[]>([]);
 
-  const handleAddToInventory = (newCards: { image: string; title: string }[]) => {
+  const handleAddToInventory = (newCards: { image: string; title: string; rarity: string }[]) => {
     setInventory((prevInventory) => [...prevInventory, ...newCards]);
     console.log('Updated inventory:', [...inventory, ...newCards]);
   };  
