@@ -2,7 +2,7 @@ import React from 'react';
 import Card from './Card';
 
 type InventoryProps = {
-  inventory: { image: string; title: string }[];
+  inventory: { image: string; title: string; rarity: string}[];
 };
 
 const Inventory: React.FC<InventoryProps> = ({ inventory }) => {
@@ -15,7 +15,7 @@ const Inventory: React.FC<InventoryProps> = ({ inventory }) => {
       ) : (
         <div className="inventory-grid">
           {inventory.map((card, index) => (
-            <Card key={index} image={card.image} title={card.title} />
+            <Card key={index} image={card.image} title={card.title} rarity={card.rarity}/>
           ))}
         </div>
       )}

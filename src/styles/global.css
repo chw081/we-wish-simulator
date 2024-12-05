@@ -98,7 +98,7 @@ nav ul li a:hover {
     height: 400px; /* Fixed height */
     display: flex; /* Flexbox to align content */
     flex-direction: column; /* Stack content vertically */
-    border: 1px solid #ccc;
+    border: 2px solid gray;
     border-radius: 8px;
     overflow: hidden; /* Prevent overflow */
     text-align: center;
@@ -106,6 +106,32 @@ nav ul li a:hover {
     background-color: white;
     transition: transform 0.3s, box-shadow 0.3s; /* Hover effects */
 }
+
+.card.common {
+    border: 2px solid gray;
+    color: gray;
+}
+
+.card.uncommon {
+    border: 2px solid green;
+    color: green;
+}
+
+.card.rare {
+    border: 2px solid blue;
+    color: blue;
+}
+
+.card.epic {
+    border: 2px solid purple;
+    color: purple;
+}
+
+.card.legend {
+    border: 2px solid gold;
+    color: gold;
+}
+
   
 .card:hover {
     transform: translateY(-5px); /* Lift on hover */
