@@ -2,12 +2,11 @@
 // Cards
 // public/assets/
 const cards = [
-    { image: '/assets/card1.jpg', title: 'Dragon Castle', rarity: 'Common' },
-    { image: '/assets/card2.png', title: 'Cyber City', rarity: 'Uncommon' },
-    { image: '/assets/card3.jpg', title: 'Ancient Ruins', rarity: 'Rare' },
-    { image: '/assets/card4.jpg', title: 'Stars Gateway', rarity: 'Epic' },
-    { image: '/assets/card5.jpeg', title: 'Hogwarts Express', rarity: 'Legend' },
-    // Add more cards here
+    { image: '/assets/card1.jpg', title: 'Dragon Castle', rarity: 'Common', acquiredAt: null },
+    { image: '/assets/card2.png', title: 'Cyber City', rarity: 'Uncommon', acquiredAt: null },
+    { image: '/assets/card3.jpg', title: 'Ancient Ruins', rarity: 'Rare', acquiredAt: null },
+    { image: '/assets/card4.jpg', title: 'Stars Gateway', rarity: 'Epic', acquiredAt: null },
+    { image: '/assets/card5.jpeg', title: 'Hogwarts Express', rarity: 'Legend', acquiredAt: null },
 ];
 
 //Rarity levels

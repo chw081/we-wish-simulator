@@ -3,19 +3,21 @@ import Card from '../components/Card';
 import { getRandomCard } from '../services/wishLogic';
 
 type HomeProps = {
-  addToInventory: (cards: { image: string; title: string; rarity: string;}[]) => void;
+  addToInventory: (cards: { image: string; title: string; rarity: string; acquiredAt: Date }[]) => void;
 };
 
 const Home: React.FC<HomeProps> = ({ addToInventory }) => {
-  const [currentCards, setCurrentCards] = useState<{ image: string; title: string; rarity: string }[]>([]);
+  const [currentCards, setCurrentCards] = useState<{ image: string; title: string; rarity: string; acquiredAt: Date }[]>([]);
 
   const handleWishes = (numOfWishes: number) => {
-    // Generate the specified number of random cards
-    const newCards = Array.from({ length: numOfWishes }, () => getRandomCard()); 
-    setCurrentCards(newCards); // Set the newly generated numOfWishes cards to currentCards
-    addToInventory(newCards); // Add the numOfWishes cards to the inventory
-    // Log the cards (for debugging or verification purposes)
-    console.log(`${numOfWishes} wish cards:`, newCards);
+    // Generate the specified number of random cards and add timestamps
+    const newCards = Array.from({ length: numOfWishes }, () => {
+      const card = getRandomCard();
+      return { ...card, acquiredAt: new Date() }; // Add timestamp
+    });
+    setCurrentCards(newCards); // Set the newly generated cards
+    addToInventory(newCards); // Add the new cards with timestamps to the inventory
+    console.log(`${numOfWishes} wish cards:`, newCards); // Debugging log
   };
 
   return (

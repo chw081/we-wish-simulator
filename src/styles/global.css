@@ -131,7 +131,6 @@ nav ul li a:hover {
     border: 2px solid gold;
     color: gold;
 }
-
   
 .card:hover {
     transform: translateY(-5px); /* Lift on hover */
@@ -187,6 +186,43 @@ nav ul li a:hover {
     padding: 16px; /* Add padding around the grid */
     overflow-x: hidden; /* Prevent horizontal scrolling */
     width: 100%; /* Ensure grid has space */
+}
+
+.inventory-controls {
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    gap: 20px; /* Spacing between controls */
+    margin-bottom: 20px; /* Space from the inventory grid */
+}
+
+.inventory-controls label {
+    font-size: 1rem;
+    font-weight: bold;
+    color: #333;
+    display: flex;
+    align-items: center;
+    gap: 8px; /* Spacing between label and select */
+}
+  
+.inventory-controls select {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1rem;
+    background-color: #f9f9f9;
+    cursor: pointer;
+    transition: border-color 0.3s;
+}
+
+.inventory-controls select:hover {
+    box-shadow: 0px 0px 5px 2px #868eec;
+}
+
+.inventory-title {
+    text-align: left;
+    margin-bottom: 20px;
+    color: #444;
 }
 
 .inventory-page {

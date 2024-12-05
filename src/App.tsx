@@ -6,13 +6,24 @@ import Home from './pages/Home';
 import InventoryPage from './pages/InventoryPage';
 import About from './pages/About';
 
+type CardType = {
+  image: string;
+  title: string;
+  rarity: string;
+  acquiredAt: Date; // Include acquisition time
+};
+
 function App() {
-  const [inventory, setInventory] = useState<{ image: string; title: string; rarity: string }[]>([]);
+  const [inventory, setInventory] = useState<CardType[]>([]);
 
   const handleAddToInventory = (newCards: { image: string; title: string; rarity: string }[]) => {
-    setInventory((prevInventory) => [...prevInventory, ...newCards]);
-    console.log('Updated inventory:', [...inventory, ...newCards]);
-  };  
+    const cardsWithTimestamps = newCards.map(card => ({
+      ...card,
+      acquiredAt: new Date(), // Add acquisition timestamp
+    }));
+    setInventory((prevInventory) => [...prevInventory, ...cardsWithTimestamps]);
+    console.log('Updated inventory:', [...inventory, ...cardsWithTimestamps]);
+  };
 
   console.log('Inventory before passing to InventoryPage:', inventory);
 

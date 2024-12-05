@@ -30,7 +30,7 @@ const About: React.FC = () => {
       </section>
 
       <footer className="about-footer">
-        <p>&copy; 2024 Wish Simulator. All rights reserved.</p>
+        <p>&copy; 2024 We Wish Simulator. All rights reserved.</p>
       </footer>
     </div>
   );
