@@ -2,7 +2,7 @@ import React from 'react';
 import Inventory from '../components/Inventory';
 
 type InventoryPageProps = {
-  inventory: { image: string; title: string }[];
+  inventory: { image: string; title: string; rarity: string}[];
 };
 
 const InventoryPage: React.FC<InventoryPageProps> = ({ inventory }) => {
