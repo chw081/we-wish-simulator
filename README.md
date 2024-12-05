@@ -6,11 +6,13 @@ Welcome to the **Wish Simulator**, a fun and interactive web app created to simu
 
 ## **Features**
 
-- 🎲 **Single Wish**: Draw one card at a time.
-- ✨ **Ten Wishes**: Draw ten cards at once for a thrilling experience.
-- 📚 **Inventory Management**: View your collection in an organized inventory.
+- 🎴 **Card Collection**: Acquire beautifully designed cards with various rarities.
+- 🪄 **Wish Mechanics**: Simulate card pulling with customizable wish counts.
+- 📚 **Inventory Management**:
+  - **Filter by Rarity**: Quickly find cards of a specific rarity.
+  - **Sort Options**: Organize your collection by rarity or the time of acquisition.
+- 🌈 **Dynamic UI**: User-friendly interface with stylish dropdowns and Font Awesome integration.
 - 📱 **Responsive Design**: Optimized for both desktop and mobile devices.
-- ❤️ **Personal Touch**: Made for the UC San Diego community to enjoy!
 
 ---
 
@@ -104,8 +106,9 @@ The app is deployed on [Vercel](https://vercel.com/). Follow these steps to depl
 ## **Folder Structure**
 
 ```plaintext
-src/
+public/
 ├── assets/               # Static assets (e.g., images)
+src/
 ├── components/           # Reusable components (Navbar, Footer, Card, etc.)
 ├── pages/                # Page-level components (Home, InventoryPage, About)
 ├── services/             # Business logic (e.g., wishLogic.ts)
@@ -118,10 +121,12 @@ src/
 
 ## **Future Enhancements**
 
-- 🌟 Add card rarity and special effects.
 - 🏆 Leaderboard to compare collections with friends.
 - 🔄 Implement persistent storage for inventory.
 - 🎨 Design new card themes for holidays and events.
+- 🧙‍♀️ Additional wish probabilities, card designs, and special effects.
+- 🎨 Custom themes and user preferences.
+- 📊 Statistics to track wish results and rare card pull rates.
 
 ---
 
