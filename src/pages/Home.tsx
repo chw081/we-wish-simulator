@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
-import Card from '../components/Card';
+import FlippableCard from '../components/FilppableCard';
 import { getRandomCard } from '../services/wishLogic';
-import { useSpring, animated } from '@react-spring/web';
 
 // Define a type for Card
 type CardType = {
@@ -64,42 +63,6 @@ const Home: React.FC<HomeProps> = ({ addToInventory }) => {
         ))}
       </div>
     </div>
-  );
-};
-
-// Updated FlippableCard Component
-const FlippableCard: React.FC<{ card: CardType; flipped: boolean; onFlip: () => void }> = ({
-  card,
-  flipped,
-  onFlip,
-}) => {
-  const springProps = useSpring({
-    opacity: 1,
-    transform: flipped ? 'rotateY(180deg)' : 'rotateY(0deg)',
-    from: { opacity: 0, transform: 'rotateY(0deg)' },
-    config: { duration: 1000 },
-  });
-
-  return (
-    <animated.div
-      className="flippable-card"
-      style={springProps}
-      onClick={onFlip}
-    >
-      {flipped ? (
-        <div className="card-front">
-          <Card
-            image={card.image}
-            title={card.title}
-            rarity={card.rarity}
-          />
-        </div>
-      ) : (
-        <div className="card-back">
-          <img src="/assets/cardback.jpeg" alt="Card Back" className="card-back-image" />
-        </div>
-      )}
-    </animated.div>
   );
 };
 
