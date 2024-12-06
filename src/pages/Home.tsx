@@ -2,6 +2,7 @@
 import React, { useState } from 'react';
 import Card from '../components/Card';
 import { getRandomCard } from '../services/wishLogic';
+import { useSprings, animated } from '@react-spring/web';
 
 // Define a type for Card
 type CardType = {
@@ -34,6 +35,15 @@ const Home: React.FC<HomeProps> = ({ addToInventory }) => {
     }, 100);
   };
 
+  // Create spring animations for each card
+  const springs = useSprings(currentCards.length, currentCards.map((_, index) => ({
+      reset: true,
+      from: { opacity: 0, transform: 'scale(0.9)' },
+      to: { opacity: 1, transform: 'scale(1)' },
+      delay: index * 100 + Date.now() % 100, // Add slight variation to always trigger animation
+    }))
+  );
+
   return (
     <div className="home-page">
       <h1 className="home-title">Welcome to Wish Simulator</h1>
@@ -46,8 +56,10 @@ const Home: React.FC<HomeProps> = ({ addToInventory }) => {
         </button>
       </div>
       <div className="cards-display">
-        {currentCards.map((card, index) => (
-          <Card key={index} image={card.image} title={card.title} rarity={card.rarity} />
+        {springs.map((springProps, index) => (
+          <animated.div key={index} style={springProps}>
+            <Card image={currentCards[index].image} title={currentCards[index].title} rarity={currentCards[index].rarity} />
+          </animated.div>
         ))}
       </div>
     </div>
