@@ -205,6 +205,43 @@ nav ul li a:hover {
     justify-items: center;
 }  
 
+.flippable-card {
+    width: 300px;
+    height: 400px;
+    display: flex; /* Flexbox to align content */
+    flex-direction: column; /* Stack content vertically */
+    cursor: grab;
+}
+
+.card-front {
+    transform: rotateY(180deg);
+}
+
+.card-back {
+    width: 300px; /* Fixed width */
+    height: 400px; /* Fixed height */
+    display: flex; /* Flexbox to align content */
+    flex-direction: column; /* Stack content vertically */
+    border: 2px solid gray;
+    border-radius: 8px;
+    overflow: hidden; /* Prevent overflow */
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    background-color: white;
+    transition: transform 0.3s, box-shadow 0.3s; /* Hover effects */
+}
+
+.card-back:hover {
+    transform: translateY(-5px); /* Lift on hover */
+    box-shadow: 0 6px 10px #868eec;
+}
+
+.card-back-image {
+    width: 100%; /* Scale image to fit card width */
+    height: 100%; /* Take up most of the card height */
+    object-fit: cover; /* Prevent image distortion */
+}
+
 /* Inventory Styles */
 .inventory-grid {
     display: grid; /* Use grid layout */

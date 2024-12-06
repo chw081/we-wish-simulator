@@ -1,8 +1,7 @@
-// src/pages/Home.tsx
 import React, { useState } from 'react';
 import Card from '../components/Card';
 import { getRandomCard } from '../services/wishLogic';
-import { useSprings, animated } from '@react-spring/web';
+import { useSpring, animated } from '@react-spring/web';
 
 // Define a type for Card
 type CardType = {
@@ -18,31 +17,30 @@ type HomeProps = {
 
 const Home: React.FC<HomeProps> = ({ addToInventory }) => {
   const [currentCards, setCurrentCards] = useState<CardType[]>([]);
+  const [flippedStates, setFlippedStates] = useState<boolean[]>([]);
   const [isLoading, setIsLoading] = useState(false);
 
   const handleWishes = (numOfWishes: number) => {
     setIsLoading(true);
     setTimeout(() => { // Simulate async operation
-      // Generate the specified number of random cards and add timestamps and unique IDs
+      // Generate the specified number of random cards and add timestamps
       const newCards = Array.from({ length: numOfWishes }, () => {
         const card = getRandomCard();
-        return { ...card, acquiredAt: new Date(),  }; // Add timestamp and unique ID
+        return { ...card, acquiredAt: new Date() };
       });
       setCurrentCards(newCards); // Set the newly generated cards
+      setFlippedStates(new Array(numOfWishes).fill(false)); // Reset all cards to the back side
       addToInventory(newCards); // Add the new cards with timestamps to the inventory
       setIsLoading(false);
       console.log(`${numOfWishes} wish cards:`, newCards); // Debugging log
     }, 100);
   };
 
-  // Create spring animations for each card
-  const springs = useSprings(currentCards.length, currentCards.map((_, index) => ({
-      reset: true,
-      from: { opacity: 0, transform: 'scale(0.9)' },
-      to: { opacity: 1, transform: 'scale(1)' },
-      delay: index * 100 + Date.now() % 100, // Add slight variation to always trigger animation
-    }))
-  );
+  const handleFlip = (index: number) => {
+    setFlippedStates((prevFlippedStates) =>
+      prevFlippedStates.map((flipped, i) => (i === index ? !flipped : flipped))
+    );
+  };
 
   return (
     <div className="home-page">
@@ -56,13 +54,52 @@ const Home: React.FC<HomeProps> = ({ addToInventory }) => {
         </button>
       </div>
       <div className="cards-display">
-        {springs.map((springProps, index) => (
-          <animated.div key={index} style={springProps}>
-            <Card image={currentCards[index].image} title={currentCards[index].title} rarity={currentCards[index].rarity} />
-          </animated.div>
+        {currentCards.map((card, index) => (
+          <FlippableCard
+            key={index}
+            card={card}
+            flipped={flippedStates[index]}
+            onFlip={() => handleFlip(index)}
+          />
         ))}
       </div>
     </div>
+  );
+};
+
+// Updated FlippableCard Component
+const FlippableCard: React.FC<{ card: CardType; flipped: boolean; onFlip: () => void }> = ({
+  card,
+  flipped,
+  onFlip,
+}) => {
+  const springProps = useSpring({
+    opacity: 1,
+    transform: flipped ? 'rotateY(180deg)' : 'rotateY(0deg)',
+    from: { opacity: 0, transform: 'rotateY(0deg)' },
+    config: { duration: 1000 },
+  });
+
+  return (
+    <animated.div
+      className="flippable-card"
+      style={springProps}
+      onClick={onFlip}
+    >
+      {flipped ? (
+        <div className="card-front">
+          <Card
+            image={card.image}
+            title={card.title}
+            rarity={card.rarity}
+          />
+        </div>
+      ) : (
+        <div className="card-back">
+          <img src="/assets/cardback.jpeg" alt="Card Back" className="card-back-image" />
+        </div>
+      )}
+    </animated.div>
   );
 };
 
