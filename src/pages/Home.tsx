@@ -1,3 +1,4 @@
+// src/pages/Home.tsx
 import React, { useState } from 'react';
 import Card from '../components/Card';
 import { getRandomCard } from '../services/wishLogic';
