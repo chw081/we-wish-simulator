@@ -164,11 +164,45 @@ nav ul li a:hover {
 .home-page {
     width: 100%;
 }
+
+.home-title {
+    font-size: 3rem;
+    color: #444;
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.wish-buttons {
+    margin-bottom: 20px;
+}
+
+.wish-button {
+    padding: 10px 20px;
+    margin: 0 10px;
+    font-size: 1rem;
+    background-color: #333;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.wish-button:disabled {
+    background-color: #666;
+    cursor: not-allowed;
+}
+
+.wish-button:hover:not(:disabled) {
+    background-color: #868eec;
+}
+
 .cards-display {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 16px;
     margin-top: 20px;
+    justify-items: center;
 }  
 
 /* Inventory Styles */
@@ -220,9 +254,10 @@ nav ul li a:hover {
 }
 
 .inventory-title {
-    text-align: left;
-    margin-bottom: 20px;
+    font-size: 3rem;
     color: #444;
+    margin-bottom: 20px;
+    text-align: left;
 }
 
 .inventory-page {
