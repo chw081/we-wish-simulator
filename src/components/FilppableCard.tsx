@@ -8,20 +8,22 @@ type CardType = {
   image: string;
   title: string;
   rarity: string;
-  acquiredAt: Date;
+  acquiredAt: Date; // timestamp of when the card was acquired
 };
 
+// Props for the FlippableCard component
 type FlippableCardProps = {
   card: CardType;
-  flipped: boolean;
-  locked: boolean;
-  onFlip: () => void;
+  flipped: boolean; // whether the card is face-up
+  locked: boolean; // whether the card can be flipped again
+  onFlip: () => void; // callback when a flip is attempted
 };
 
 const FlippableCard: React.FC<FlippableCardProps> = ({ card, flipped, locked, onFlip }) => {
+  // Set up flip animation using react-spring
   const springProps = useSpring({
     transform: flipped ? 'rotateY(180deg)' : 'rotateY(0deg)',
-    config: { duration: 600 },
+    config: { duration: 600 }, // control animation speed
   });
 
   return (
