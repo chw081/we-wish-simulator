@@ -40,7 +40,7 @@ const FlippableCard: React.FC<FlippableCardProps> = ({ card, flipped, locked, on
         </div>
       ) : (
         <div className="card-back">
-          <img src="/assets/cardback.jpeg" alt="Card Back" className="card-back-image" />
+          <img src="/assets/cardback.png" alt="Card Back" className="card-back-image" />
         </div>
       )}
     </animated.div>
