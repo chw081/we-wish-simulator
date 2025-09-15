@@ -2,23 +2,28 @@
 
 Welcome to the **Wish Simulator**, a fun and interactive web app created to simulate the excitement of making wishes and collecting unique cards. Originally designed for UC San Diego classmates and friends, this app brings joy and creativity to everyone!
 
----
-
-## **Features**
-
-- 🎴 **Card Collection**: Acquire beautifully designed cards with various rarities.
-- 🪄 **Wish Mechanics**: Simulate card pulling with customizable wish counts.
-- 📚 **Inventory Management**:
-  - **Filter by Rarity**: Quickly find cards of a specific rarity.
-  - **Sort Options**: Organize your collection by rarity or the time of acquisition.
-- 🌈 **Dynamic UI**: User-friendly interface with stylish dropdowns and Font Awesome integration.
-- 📱 **Responsive Design**: Optimized for both desktop and mobile devices.
+![Vercel Deploy](https://img.shields.io/badge/deployed%20on-Vercel-blue)
+![License](https://img.shields.io/github/license/chw081/we-wish-simulator)
+[![Star](https://img.shields.io/github/stars/chw081/we-wish-simulator?style=social)](https://github.com/chw081/we-wish-simulator/stargazers)
+[![Follow](https://img.shields.io/github/followers/chw081?label=Follow&style=social)](https://github.com/chw081)
 
 ---
 
 ## **Demo**
 
 You can check out the live demo of the app here: [Wish Simulator Demo](https://we-wish-simulator.vercel.app)
+
+---
+
+## **Features**
+
+- 🎴 **Card Collection**: Acquire beautifully designed cards with various rarities.
+- 🪄 **Wish Mechanics**: Simulate single or multi-pulls with rarity-based outcomes. 
+- 📚 **Inventory Management**:
+  - **Filter by Rarity**: Quickly find cards of a specific rarity.
+  - **Sort Options**: Organize your collection by rarity or the time of acquisition.
+- 🌈 **Dynamic UI**: User-friendly interface with interactive dropdowns and polished animations.
+- 📱 **Responsive Design**: Works seamlessly on desktop and mobile.
 
 ---
 
@@ -61,12 +66,12 @@ Follow these instructions to run the app locally.
 
 3. **Run the App Locally**:
    ```bash
-   npm start
+   npm run dev
    ```
 
 4. Open your browser and go to:
    ```
-   http://localhost:3000
+   http://localhost:5173
    ```
 
 ---
@@ -159,7 +164,7 @@ This project is licensed under the MIT License. See the [LICENSE](LICENSE) file 
 
 ## **Acknowledgments**
 
-- Made with ❤️ for UC San Diego classmates and friends.
+- Built with ❤️ to share fun moments with friends and anyone who loves games.
 - Special thanks to [Vercel](https://vercel.com/) for easy deployment.
 
 ---
