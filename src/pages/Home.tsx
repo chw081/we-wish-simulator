@@ -17,27 +17,31 @@ type HomeProps = {
 const Home: React.FC<HomeProps> = ({ addToInventory }) => {
   const [currentCards, setCurrentCards] = useState<CardType[]>([]);
   const [flippedStates, setFlippedStates] = useState<boolean[]>([]);
+  const [lockedStates, setLockedStates] = useState<boolean[]>([]);
   const [isLoading, setIsLoading] = useState(false);
 
   const handleWishes = (numOfWishes: number) => {
     setIsLoading(true);
-    setTimeout(() => { // Simulate async operation
-      // Generate the specified number of random cards and add timestamps
+    setTimeout(() => {
       const newCards = Array.from({ length: numOfWishes }, () => {
         const card = getRandomCard();
         return { ...card, acquiredAt: new Date() };
       });
-      setCurrentCards(newCards); // Set the newly generated cards
-      setFlippedStates(new Array(numOfWishes).fill(false)); // Reset all cards to the back side
-      addToInventory(newCards); // Add the new cards with timestamps to the inventory
+
+      setCurrentCards(newCards);
+      setFlippedStates(new Array(numOfWishes).fill(false));
+      setLockedStates(new Array(numOfWishes).fill(false));
+      addToInventory(newCards);
       setIsLoading(false);
-      console.log(`${numOfWishes} wish cards:`, newCards); // Debugging log
     }, 100);
   };
 
   const handleFlip = (index: number) => {
-    setFlippedStates((prevFlippedStates) =>
-      prevFlippedStates.map((flipped, i) => (i === index ? !flipped : flipped))
+    setFlippedStates((prev) =>
+      prev.map((flipped, i) => (i === index ? true : flipped)) // force front side only
+    );
+    setLockedStates((prev) =>
+      prev.map((locked, i) => (i === index ? true : locked)) // lock the card
     );
   };
 
@@ -58,6 +62,7 @@ const Home: React.FC<HomeProps> = ({ addToInventory }) => {
             key={index}
             card={card}
             flipped={flippedStates[index]}
+            locked={lockedStates[index]}
             onFlip={() => handleFlip(index)}
           />
         ))}

@@ -14,30 +14,27 @@ type CardType = {
 type FlippableCardProps = {
   card: CardType;
   flipped: boolean;
+  locked: boolean;
   onFlip: () => void;
 };
 
-const FlippableCard: React.FC<FlippableCardProps> = ({ card, flipped, onFlip }) => {
+const FlippableCard: React.FC<FlippableCardProps> = ({ card, flipped, locked, onFlip }) => {
   const springProps = useSpring({
-    opacity: 1,
     transform: flipped ? 'rotateY(180deg)' : 'rotateY(0deg)',
-    from: { opacity: 0, transform: 'rotateY(0deg)' },
-    config: { duration: 1000 },
+    config: { duration: 600 },
   });
 
   return (
     <animated.div
-      className="flippable-card"
+      className={`flippable-card ${locked ? 'locked' : ''}`}
       style={springProps}
-      onClick={onFlip}
+      onClick={() => {
+        if (!locked) onFlip(); // only allow flip if not locked
+      }}
     >
       {flipped ? (
         <div className="card-front">
-          <Card
-            image={card.image}
-            title={card.title}
-            rarity={card.rarity}
-          />
+          <Card image={card.image} title={card.title} rarity={card.rarity} />
         </div>
       ) : (
         <div className="card-back">
